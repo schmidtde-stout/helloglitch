@@ -1,0 +1,17 @@
+name: Push to Glitch CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: kanadgupta/glitch-sync@main
+      with:
+        auth-token: '${{ secrets.authToken }}'
+        project-id: '${{ secrets.projectId }}'
+
