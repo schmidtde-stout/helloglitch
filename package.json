@@ -1,0 +1,12 @@
+{
+  "name": "helloglitch",
+  "version": "1.0.0",
+  "description": "first program on glitch",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
