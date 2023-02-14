@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api";
+
 function App() {
   const [message, setMessage] = useState("Nothing Yet");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch(process.env.REACT_APP_BACKEND_URL)
+    fetch(BACKEND_URL)
       .then((response) => response.json())
       .then((data) => setMessage(data.express))
       .then(() => setLoading(false))
