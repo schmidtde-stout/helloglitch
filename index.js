@@ -1,14 +1,20 @@
-const http = require("http");
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 5000;
 
-const hostname = "127.0.0.1";
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello Glitch!! -- From Local Push -- frustration - one more time");
+/*
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
+*/
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+app.get("/api", (req, res) => {
+  res.send({ express: "simple response :)" });
 });
