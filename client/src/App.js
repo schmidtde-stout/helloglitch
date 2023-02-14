@@ -8,7 +8,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/api")
+    fetch(process.env.REACT_APP_BACKEND_URL)
       .then((response) => response.json())
       .then((data) => setMessage(data.express))
       .then(() => setLoading(false))
@@ -23,9 +23,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <p>A message from express: {message} </p>
-        </p>
+        <p>A message from express: {message} </p>
         <a
           className="App-link"
           href="https://reactjs.org"
